@@ -18,14 +18,10 @@ class Game
     public void play()
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println(" ******************Here is the game of guessing number*****************");
-
-        System.out.println("                                                         ");
+        System.out.println(" ******************Here is the game of guessing number*");
         System.out.println("You need to guess the number in maximum 4 chances");
 
-        
-
-        while(chance > 0 )
+        while(chance>0 )
         {
             System.out.print("Enter the number in your mind between 1 to 100 :");
             int number = sc.nextInt();
@@ -55,21 +51,43 @@ class Game
         System.out.println("Sorry");
         System.out.println("You don't have enough chances to play");
 
-        System.out.println("the correct nuber was:"+" "+guess);
+        System.out.println("The correct number was:"+" "+guess);
     }
-
-
 }
 
-public class NumberGame
+public class NumberGames
 {
     public static void main(String args[])
     {
+        Scanner sc = new Scanner(System.in);
         Game g = new Game();
         g.play();
 
-        System.out.println("Do you want to play again ?");
+        char ch;
+
         
+        do
+        {
+            System.out.println("DO YOU WANT TO PLAY AGAIN ?");
+            ch=sc.next().charAt(0);
+            
+            if(ch=='Y')
+            {
+                g = new Game();
+                g.play();
+                break;
+            }
+            else if(ch=='y')
+            {
+                System.out.println("Thank You...");
+                break;
+            }
+            else
+            {
+                System.out.println("Invalid Input");
+                break;
+            }
+        }while(ch=='Y'||ch=='y');
 
 
     }
